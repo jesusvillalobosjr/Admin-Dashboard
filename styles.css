@@ -1,0 +1,342 @@
+:root{
+    --page-blue: #1E90FF;
+    --page-grey: #C5C8D5;
+    --announcement-font-size: 10px;
+    --trending-text-font-size: 12px;
+}
+
+html,body{
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+main{
+    display: grid;
+    grid-template-areas: 'dashboard search search'
+                         'dashboard nav nav'
+                         'dashboard main main'
+                         'dashboard main main';
+    max-width: 1700px;
+}
+
+.profile-icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+main .dashboard{
+    background-color:var(--page-blue);
+    color: white;
+    grid-area: dashboard;
+}
+
+main .dashboard .dashboard-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 10px;
+    position: sticky;
+    top: 0;
+}
+
+main .dashboard .dashboard-container .title-and-logo{
+    display: flex;
+    gap: 10px;
+    padding: 10px 5px;
+}
+
+main .dashboard .dashboard-container .title-and-logo .company-name{
+    margin: 0;
+}
+
+main .dashboard .dashboard-container .title-and-logo span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .dashboard .dashboard-container .dashboard-options, main .dashboard .dashboard-container .user-support-options{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.option{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main .search-and-profile-widget{
+    display: flex;
+    justify-content: space-between;
+    grid-area: search;
+}
+
+main .search-and-profile-widget form{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+main .search-and-profile-widget form .search-button{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+main .search-and-profile-widget form .search-bar{
+    background-color: var(--page-grey);
+    border: transparent;
+    border-radius: 10px;
+    flex: 1;
+}
+
+main .search-and-profile-widget .notification-and-profile-widget{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+main .profile-nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    grid-area: nav;
+}
+
+main .profile-nav-bar .left-nav{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main .profile-nav-bar .left-nav .profile-icon{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+main .profile-nav-bar .left-nav .intro-and-name .intro, main .profile-nav-bar .left-nav .intro-and-name .name{
+    margin: 0;
+}
+
+main .profile-nav-bar .right-nav{
+    display: flex;
+    gap: 30px;
+}
+
+main .profile-nav-bar .right-nav .nav-option{
+    background-color: var(--page-blue);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 70px;
+}
+
+main .dashboard-main{
+    display: grid;
+    background-color: var(--page-grey);
+    grid-area: main;
+    grid-template-columns: repeat(3,minmax(100px,1fr)) 200px;
+    gap: 50px;
+    padding: 70px;
+}
+
+main .dashboard-main .projects{
+   display: grid;
+   gap: 20px;
+   grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+   grid-column: 1/4;
+   grid-row: 1/3;
+   position: relative;
+}
+
+main .dashboard-main .projects::before{
+    content: 'Projects';
+    position: absolute;
+    font-size: 1.5rem;
+    top: -30px;
+}
+
+main .dashboard-main .projects .project{
+    border-left: 4px solid #FEBE10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+main .dashboard-main .annoucements{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    grid-column: 4/5;
+    gap: 10px;
+    position: relative;
+}
+
+main .dashboard-main .annoucements::before{
+    content: 'Announcements';
+    font-size: 1.5rem;
+    position: absolute;
+    top: -30px;
+    left: 0;
+}
+
+main .dashboard-main .annoucements .annoucement{
+    border-bottom: 2px solid var(--page-grey);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+main .dashboard-main .annoucements .annoucement:last-of-type{
+    border: none;
+    padding-bottom: 0;
+}
+
+main .dashboard-main .annoucements .annoucement .announcement-title{
+    margin: 0;
+}
+
+main .dashboard-main .annoucements .annoucement .annoucement-text{
+    font-size: var(--announcement-font-size);
+    margin: 0;
+}
+
+main .dashboard-main .trending{
+    grid-area: trending;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    padding: 20px;
+    grid-column: 4/5;
+    position: relative;
+}
+
+main .dashboard-main .trending::before{
+    content: 'Trending';
+    font-size: 1.5rem;
+    position: absolute;
+    top: -30px;
+    left: 0;
+}
+
+main .dashboard-main .trending .trending-profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-bottom: 2px solid var(--page-grey);
+    font-size: var(--trending-text-font-size);
+}
+
+main .dashboard-main .trending .trending-profile:last-of-type{
+    border: none;
+}
+
+main .dashboard-main .trending .trending-profile .profile-address, main .dashboard-main .trending .trending-profile .profile-name{
+    margin: 0;
+}
+
+@media(max-width:1125px){
+    main{
+        grid-template-areas: 'dashboard'
+                             'search'
+                             'nav'
+                             'main';
+    }
+
+    main .dashboard{
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    main .dashboard .dashboard-container .title-and-logo{
+        height: 100%;
+        align-items: center;
+    }
+
+    main .dashboard .dashboard-container{
+        flex-direction: row;
+        width: 100%;
+        justify-content:space-between;
+    }
+
+    main .dashboard .dashboard-container span{
+        font-size: max(16px,1.3vw);
+    }
+
+    main .dashboard .dashboard-container .dashboard-options{
+        flex-direction: row;
+        font-size: max(10px,1.3vw);
+    }
+
+    main .dashboard .dashboard-container .user-support-options{
+        flex-direction: row;
+        font-size: max(10px,1.3vw);
+    }
+
+    main .search-and-profile-widget{
+        width: 100%;
+    }
+
+    main .search-and-profile-widget .search-button{
+        font-size: max(10px,1.3vw);
+    }
+
+    main .dashboard-main{
+        grid-template-areas: 'announcements'
+                             'projects'
+                             'trending';
+        padding: 40px;
+    }
+
+    main .dashboard-main .projects{
+        grid-area: projects;
+        grid-column : 1/-1;
+    }
+
+    main .dashboard-main .annoucements{
+        grid-area: announcements;
+        grid-column: 1/-1;
+    }
+
+    main .dashboard-main .annoucements .annoucement{
+        width: 100%;
+    }
+
+    main .dashboard-main .trending{
+        grid-area: trending;
+        grid-column: 1/-1;
+    }
+}
